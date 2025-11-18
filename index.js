@@ -1,11 +1,36 @@
-function codeMessage() {
-    const message = document.getElementById("message").value;
+const letters = ["a", "b", "c", "d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x", "y","z"];
 
-    const isValid = isValidInput(message);
+function codeMessage() {
+    let message = document.getElementById("message").value;
+    let encode = document.getElementById("encode");
+    let shift = document.getElementById("shift").value;
+
+    let isValid = isValidInput(message);
 
     if (isValid) {
         document.getElementById("output").value = isValid;
     } else {
-        document.getElementById("output").value = message;
+        if (encode.checked) {
+            let encodedMessage = encodeMessage(message, shift);
+            document.getElementById("output").value = encodedMessage;
+        } else {
+            let decodeShift = 0 - Number(shift);
+            let decodedMessage = encodeMessage(message, decodeShift);
+            document.getElementById("output").value = decodedMessage;
+        }
     }
+}
+
+function encodeMessage(message, shift) {
+    let encodedMessage = ``
+    for (let i = 0; i < message.length; i++) {
+        if (message[i] == " ") {
+            encodedMessage += " "
+        } else {
+            let index = letters.indexOf(message[i]);
+            newIndex = calculateIndex(index, shift);
+            encodedMessage += letters[newIndex];
+        }
+    }
+    return encodedMessage
 }
