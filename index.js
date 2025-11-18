@@ -28,9 +28,13 @@ function encodeMessage(message, shift) {
             encodedMessage += " "
         } else {
             let index = letters.indexOf(message[i]);
-            newIndex = calculateIndex(index, shift);
+            newIndex = calculateIndex(Number(index), Number(shift));
             encodedMessage += letters[newIndex];
         }
     }
     return encodedMessage
+}
+
+if (typeof module !== "undefined") {
+    module.exports = encodeMessage;
 }
