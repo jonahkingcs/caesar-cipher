@@ -11,38 +11,79 @@
         </head>
         <body class="font-['Stack_Sans_Notch'] text-gray-800">
 
+            <!-- navbar -->
+            <nav class="navbar max-h-20 bg-blue-800/80">
+                <div class="w-full flex items-center justify-between text-gray-200">
+                    <a class="nav-button py-3 pl-6" href="index.html">
+                    <h1 class="text-3xl font-semibold">Caesar Cipher</h1>
+                    </a>
+                </div>
+            </nav>
+
             <!-- title -->
-            <h1 class="pt-12 pl-24 pr-24 text-5xl text-center mb-2">You've come here either to encode or decode secret messages!</h1>
+            <h1 class="pt-12 xl:pl-24 xl:pr-24 xl:text-6xl text-5xl text-center mb-2">You've come here either to encode or decode secret messages!</h1>
 
             <!-- input and output form -->
             <form name="messageForm" id="messageForm" class="grid grid-cols-12 p-6">
                 
                 <!-- user input area -->
                 <label for="message" class="col-span-5 col-start-2 text-2xl text-gray-500 mb-2">Enter a message:</label>
-                <textarea id="message" class="col-span-5 col-start-2 pl-1 pr-1 mb-12 outline-1 outline-solid outline-gray-500 rounded-md resize-none focus:outline-2 focus:outline-blue-600"
+                <textarea id="message" class="col-span-10 col-start-2 pl-1 pr-1 mb-12 outline-1 outline-solid outline-gray-500 rounded-md resize-none focus:outline-2 focus:outline-blue-600"
                 rows="4" oninput="codeMessage()"></textarea>
 
                 <!-- encode and decode radio buttons -->
-                <div class="col-start-2 col-span-8">
-                    <label for="encode">Encode message:</label>
-                    <input type="radio" name="code" id="encode" class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none" checked onchange="codeMessage()">
-                </div>
-                <div class="col-start-2 col-span-8 mb-12">
-                    <label for="decode">Decode message:</label>
-                    <input type="radio" name="code" id="decode" class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none" onchange="codeMessage()">
+                <div class="col-start-3 col-span-8 mb-6 flex gap-4 items-center">
+                    <!-- Encode -->
+                    <label class="flex-1">
+                        <input
+                        type="radio"
+                        name="code"
+                        id="encode"
+                        value="encode"
+                        class="peer hidden"
+                        checked
+                        onchange="codeMessage()"
+                        />
+                        <div
+                        class="w-full text-lg rounded-md border border-gray-400 px-4 py-6 text-center cursor-pointer
+                                transition
+                                peer-checked:border-blue-600 peer-checked:border-2 peer-checked:bg-blue-50 peer-checked:text-blue-700"
+                        >
+                        Encode message
+                        </div>
+                    </label>
+
+                    <!-- Decode -->
+                    <label class="flex-1">
+                        <input
+                        type="radio"
+                        name="code"
+                        id="decode"
+                        value="decode"
+                        class="peer hidden"
+                        onchange="codeMessage()"
+                        />
+                        <div
+                        class="w-full text-lg rounded-md border border-gray-400 px-4 py-6 text-center p-4 cursor-pointer
+                                transition
+                                peer-checked:border-blue-600 peer-checked:border-2 peer-checked:bg-blue-50 peer-checked:text-blue-700"
+                        >
+                        Decode message
+                        </div>
+                    </label>                  
                 </div>
 
                 <!-- amount of shift on the Caeser cipher -->
-                <label for="shift" class="col-start-2 col-span-4">Shift:</label>
+                <label for="shift" class="col-start-5 col-span-4 text-2xl text-gray-500 mb-2">Shift:</label>
                 <input type="number" min="1" max="26" id="shift" value="1"
-                class="col-start-2 col-span-1 pl-1
+                class="col-start-5 col-span-4 pl-2
                 outline-1 outline-solid outline-gray-500
-                rounded-md
+                rounded-md text-2xl p-1
                 focus:outline-2 focus:outline-blue-600" onchange="codeMessage()">
                 
                 <!-- output message area -->
-                <label for="outputMessage" class="mb-6 col-start-1 col-span-12 text-4xl text-center">Output Message:</label>
-                <textarea id="output" rows="5" class="p-12 col-start-3 col-span-8 text-center text-lg resize-none outline-none bg-linear-to-r rounded-md from-cyan-100 to-blue-100"></textarea>
+                <label for="outputMessage" class="mt-6 mb-6 col-start-1 col-span-12 text-4xl text-center">Output Message:</label>
+                <textarea id="output" rows="5" class="mb-6 p-12 xl:col-start-3 xl:col-span-8 col-start-2 col-span-10 text-center text-xl resize-none outline-none bg-linear-to-r rounded-md from-cyan-100 to-blue-100 hover:scale-102 hover:shadow-sm transition"></textarea>
 
             </form>
             <script src="inputChecker.js"></script>
