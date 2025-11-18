@@ -4,8 +4,8 @@ function codeMessage() {
     const isValid = isValidInput(message);
 
     if (isValid) {
-        document.getElementById("output").value = message;
+        document.getElementById("output").value = isValid;
     } else {
-        document.getElementById("output").value = "error";
+        document.getElementById("output").value = message;
     }
 }

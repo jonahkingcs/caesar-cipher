@@ -1,11 +1,11 @@
 const inputChecker = require("./inputChecker.js");
 
 test("It should return false when the string contains numbers", () => {
-    expect(inputChecker("abcdefg1")).toBe(false);
+    expect(inputChecker("abcdefg1")).toBe("Message can't contain numbers or special characters");
 })
 
 test("It should return false when the string contains special characters", () => {
-    expect(inputChecker("abcde(")).toBe(false);
+    expect(inputChecker("abcde(")).toBe("Message can't contain numbers or special characters");
 })
 
 test("It should return false when the string is over 1000 characters", () => {
@@ -35,5 +35,5 @@ test("It should return false when the string is over 1000 characters", () => {
         abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
         abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
         abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
-        abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz`)).toBe(false);
+        abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz`)).toBe("Message can't be longer than 1,000 characters");
 })
