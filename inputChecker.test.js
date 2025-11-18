@@ -1,4 +1,4 @@
-const inputChecker = require("./inputChecker");
+const inputChecker = require("./inputChecker.js");
 
 test("It should return false when the string contains numbers", () => {
     expect(inputChecker("abcdefg1")).toBe(false);

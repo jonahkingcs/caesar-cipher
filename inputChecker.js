@@ -13,4 +13,6 @@ function isValidInput(message) {
     return true;
 }
 
-module.exports = isValidInput;
+if (typeof module !== "undefined") {
+    module.exports = isValidInput;
+}
